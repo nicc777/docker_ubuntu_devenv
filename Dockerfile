@@ -5,7 +5,8 @@ LABEL Description="A container to use with development" Vendor="none" Version="0
 
 # Install some software
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get -y install git vim
+RUN apt-get install -y apt-utils
+RUN apt-get -y install git vim python3 python3-pip
 
 # Expose common ports that developers my use
 EXPOSE 5000
@@ -14,8 +15,8 @@ EXPOSE 8080
 EXPOSE 443
 
 # Make a directory a user can persist
-RUN mkdir /dev
-VOLUME ["/dev"]
+RUN mkdir /dev_local
+VOLUME ["/dev_local"]
 
 # Common environment variables - override when using 'docker run'
 ENV AWS_ACCESS_KEY_ID=
