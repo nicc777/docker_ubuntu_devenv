@@ -41,3 +41,19 @@ The following ports are configured to be exposed:
 
 You can just edit the Dockerfile to add more if you require.
 
+## X11 Hack
+
+Install XQuartz on OSX.
+
+On OSX, get the IP address
+
+	$ ip=$(ifconfig en3 | grep inet | awk '$1=="inet" {print $2}') && echo "My IP is: $ip"
+	My IP is: xxx.xxx.xxx.xxx
+
+NOTE: I had to use `en3` - you may require another device...
+
+Then launch the docker with:
+
+	$ docker run -it -e DISPLAY=${ip}:0 docker_ubuntu_devenv:latest /bin/bash -i
+
+And now you can "almost" any X based app, like `firefox`.
