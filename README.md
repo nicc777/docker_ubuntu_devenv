@@ -41,7 +41,7 @@ The following ports are configured to be exposed:
 
 You can just edit the Dockerfile to add more if you require.
 
-## X11 Hack
+## X11 Hack (OSX)
 
 Install XQuartz on OSX.
 
@@ -56,4 +56,4 @@ Then launch the docker with:
 
 	$ docker run -it -e DISPLAY=${ip}:0 docker_ubuntu_devenv:latest /bin/bash -i
 
-And now you can "almost" any X based app, like `firefox`.
+And now you can run "almost" any X based app, like `firefox`.
